@@ -50,6 +50,8 @@ sources:
             description: numeric representation of the shipping priority, zero being the default
           - name: o_comment
             description: '{{ doc("comment") }}'
+          - name: ingest_timestamp
+            description: "the timestamp when the data was ingested into the system"
           
       - name: customer
         description: main customer table
@@ -58,7 +60,7 @@ sources:
             description: Primary Key of the Customer table
             tests:
               - unique:
-                  severity: warn
+                  severity: error
               - not_null:
                   severity: warn
           - name: c_name
@@ -75,6 +77,8 @@ sources:
             description: market segment of the customer
           - name: c_comment
             description: '{{ doc("comment") }}'
+          - name: ingest_timestamp
+            description: "the timestamp when the data was ingested into the system"
 
       - name: lineitem
         description: main lineitem table
@@ -123,6 +127,8 @@ sources:
             description: method of shipping
           - name: l_comment
             description: '{{ doc("comment") }}'
+          - name: ingest_timestamp
+            description: "the timestamp when the data was ingested into the system"
 
       - name: nation
         description: nation mapping
@@ -131,7 +137,7 @@ sources:
             description: Primary Key of the Nation table
             tests:
               - unique:
-                  severity: warn
+                  severity: error
               - not_null:
                   severity: warn
           - name: n_name
@@ -144,6 +150,8 @@ sources:
                   field: r_regionkey
           - name: n_comment
             description: '{{ doc("comment") }}'
+          - name: ingest_timestamp
+            description: "the timestamp when the data was ingested into the system"
 
       - name: part
         description: main part table
@@ -171,6 +179,8 @@ sources:
             description: raw retail price
           - name: p_comment
             description: '{{ doc("comment") }}'
+          - name: ingest_timestamp
+            description: "the timestamp when the data was ingested into the system"
 
       - name: partsupp
         description: main part supplier table
@@ -193,6 +203,8 @@ sources:
             description: raw cost 
           - name: ps_comment
             description: '{{ doc("comment") }}'
+          - name: ingest_timestamp
+            description: "the timestamp when the data was ingested into the system"
 
       - name: region
         description: region mapping
@@ -208,6 +220,8 @@ sources:
             description: region name
           - name: r_comment
             description: '{{ doc("comment") }}'
+          - name: ingest_timestamp
+            description: "the timestamp when the data was ingested into the system"
 
       - name: supplier
         description: main supplier table
@@ -235,3 +249,5 @@ sources:
             description: raw account balance
           - name: s_comment
             description: '{{ doc("comment") }}'
+          - name: ingest_timestamp
+            description: "the timestamp when the data was ingested into the system"
